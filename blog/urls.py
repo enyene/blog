@@ -1,7 +1,11 @@
 from django.urls import path
-from .views import post_index,PostDetail
+from .views import post_index,PostDetail,draft,DraftDetail,publish,detail
 
 urlpatterns = [
     path('',post_index,name='home'),
-    path('<slug:slug>/',PostDetail.as_view(),name='detail')
+    path('draft/',draft,name='draft'),
+    path('<slug:slug>/',detail,name='detail'),
+    
+    path('<slug:slug>/<int:id>/',DraftDetail.as_view(),name='items'),
+    path('publish/<slug:slug>/<int:pk>/',publish,name='publish')
 ]

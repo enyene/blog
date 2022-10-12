@@ -85,8 +85,12 @@
                         By <a href="#" class="font-semibold hover:text-gray-800">{{post.author.username}}</a>, Published on {{post.pub_date}}
                     </p>
                     <p class="pt-2">{{post.body}}</p>
-
-                    
+                    <!-- form -->
+                    <form method="POST">
+                        {%  csrf_token %} 
+                        {{ form }}
+                        <input type="submit" value="comment">
+                    </form>
                     
             </article>
 

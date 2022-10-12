@@ -30,12 +30,12 @@ class PostDetail(DetailView):
 def detail(request,slug):
     item = Post.objects.get(slug=slug)
     comments = Comment.objects.filter(post=item.id)
-    print(comments.post)
+
    
 
     form = CommentForm()
     context = {
-                'form':form,
+                # 'form':form,
                 'post':item
             }
     if request.method == 'POST':
